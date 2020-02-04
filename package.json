@@ -33,7 +33,7 @@
     "moment-duration-format": "^2.2.2",
     "moment-timezone": "^0.5.27",
     "mongodb": "^3.2.4",
-    "morgan": "~1.7.0",
+    "morgan": "~1.9.1",
     "multer": "^1.2.0",
     "mysql": "^2.15.0",
     "node-cron": "^1.2.1",
