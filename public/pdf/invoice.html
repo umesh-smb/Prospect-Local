@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Solar Purchase and Installation Agreemen</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Oxygen');
+        body {
+            background: #fff;
+            margin: 0px;
+            font-family: 'Oxygen', sans-serif;
+            line-height: 25px;
+        }
+        
+        .wp_wrapper {
+            margin: 10px;
+            background: #fff;
+            padding: 10px;
+         
+        }
+        .wp_wrapper-main{
+            border:1px solid #f0f0f0; 
+            background: #f0f0f0;
+             margin: 10px;
+            
+        }
+        
+        .wp_wrapper p {
+            font-size: 16px;
+            color: #000;
+        }
+        
+        .sub_header {
+            font-size: 17px;
+            font-weight: bold;
+        }
+        
+        .list_squr li {
+            list-style-type: square;
+            margin-bottom: 10px;
+        }
+        
+        ol li {
+            padding: 5px 0px;
+        }
+        
+        ul li {
+            list-style: none;
+            padding: 0px;
+        }
+        
+        h3 {
+            margin-top: 20px;
+        }
+        /* @media screen and (max-width: 767px){
+        .wp_wrapper{
+            width: 100%;
+        }   
+    } */
+        
+        td {
+            min-width: 100px;
+            /* text-align: center; */
+            padding: 5px 0px;
+            border-bottom: 1px solid #9999991f;
+        }
+        
+        th {
+            text-align: left;
+            padding: 5px 0px;
+            border-bottom: 1px solid;
+            border-top: 1px solid;
+        }
+        
+        .group-head {
+            text-align: left;
+            background-color: #e7e7e7;
+            font-weight: bold;
+            padding-left: 15px;
+        }
+        
+         
+        
+        .orange-set {
+            color: #ffbc34;
+        }
+        
+        .Green-set {
+            color: #9add3b;
+        }
+        
+        .blue-set {
+            color: #857bff;
+        }
+        
+        .red-set {
+            color: #ff7474;
+        }
+        
+        .ngreen-set {
+            color: #58d8a3;
+        }
+        .border-left{
+            border-left: 1px solid #9999991f;
+        }
+        .border-right{
+            border-right: 1px solid #9999991f;
+        }
+        .head-div{
+                      padding-left: 30px;
+            padding-top: 30px;
+            float: left;
+        }
+        .head-span{
+            font-size: 19px;
+            font-weight: bold;
+            text-transform: capitalize;
+  
+        }
+        @media only screen and (max-width: 767px) {
+            .wp_wrapper {
+                width: 100%;
+            }
+        }
+        h4 {
+            font-size: 18px;
+            margin: 40px 0px 5px 0px;
+        }
+        h6 {
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0px;
+        }
+        h5 {
+            color: #000000;
+            font-size: 16px;
+            margin: 0px;
+        }
+        .bold{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+     <div class="wp_wrapper-main">
+    <div class="wp_wrapper">
+     
+        
+<div id="" >
+<div class="head-div" >
+    <span class="head-span">Order Confirmation </span>
+</div>
+<div>
+    <a href="#" style="display: flow-root;"><img src="http://matrix.uspowersavers.com/email/matrix_logo.png" style="float: right;width: 250px;"> </a>
+</div>
+    
+</div> 
+ <div style="clear: both;border-bottom: 1px solid #ccc;"></div>
+
+<table>
+    <tr>
+        <td  style="    vertical-align: initial;    min-width: 400px;">
+                <div>
+                <h4>Order Informations</h4>
+                <h6> <span class="bold">Order ID</span> : <%= data.order_info.order_code %> </h6>
+               
+                <h6> <span class="bold">Order Date</span> : <%= data.order_info.order_date %>  </h6>
+
+            </div>
+            
+              
+        </td>
+        <td style="    vertical-align: initial; min-width: 400px;">
+            <div>
+                <h4>Shipping To</h4>
+                <h6><%= data.order_info.name %> | <%= data.order_info.phone %></h6>
+               
+                <h6>   <%= data.order_info.street %>   </h6>
+                <h6>    <%= data.order_info.city %> <%= data.order_info.state %> <%= data.order_info.zip_code %>  </h6>
+                <h6>   <%= data.order_info.building_no %>  <%= data.order_info.landmark %></h6>
+            
+             </div>
+        </td>
+        <td style="    vertical-align: initial;">
+
+                <div>   
+                        <h4>Order Total</h4>
+                        <h6> <span class="bold">Subtotal</span> : <%= data.order_info.sub_total %> </h6>               
+                        <h6> <span class="bold">Delivery</span> : <%= data.order_info.shipping_fee %>  </h6>
+                        <h6> <span class="bold">Total Price</span> : <%= data.order_info.total %>  </h6>
+
+                    </div>
+             
+ 
+            </td>
+
+    </tr>
+
+</table>
+
+<h4>Order Items</h4>
+
+<table style="width: 100%;border-spacing: 0;" border="0">
+    <tr>
+      
+        <th >Product</th>
+        <th >Qty</th>
+        <th>Amount</th>
+        <th >Total</th>
+       
+    </tr>
+
+   
+
+    <% for(var i=0; i<data.order_items.length; i++) { %>
+        <tr>   
+     
+        
+            <td ><%= data.order_items[i].product_name %></td>
+            <td ><%= data.order_items[i].quantity %></td>
+            <td ><%= data.order_items[i].amount %></td>
+            <td ><%= data.order_items[i].item_total %></td>
+            
+        </tr>
+             <% } %>
+
+            
+      
+
+    </table>
+
+
+
+
+
+
+
+       
+
+  
+
+
+ 
+
+
+
+
+    </div>
+             </div>
+<div id="pageFooter" style="border: 6px solid #f0f0f0;margin-left: 10px;margin-right: 10px"></div>
+ <div id="pageHeader" style="border: 6px solid #f0f0f0;margin-left: 10px;margin-right: 10px"></div>
+<div id="pageHeader-first"></div>
+
+</body>
+
+</html>

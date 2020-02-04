@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Solar Purchase and Installation Agreemen</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Oxygen');
+        body {
+            background: #fff;
+            margin: 0px;
+            font-family: 'Oxygen', sans-serif;
+            line-height: 25px;
+            font-size: 14px;
+        }
+        
+        .wp_wrapper {
+            margin: 10px;
+            background: #fff;
+            padding: 10px;
+         
+        }
+        .wp_wrapper-main{
+            border:1px solid #f0f0f0; 
+            background: #f0f0f0;
+             margin: 10px;
+        }
+        
+        .wp_wrapper p {
+            font-size: 16px;
+            color: #000;
+        }
+        
+        .sub_header {
+            font-size: 17px;
+            font-weight: bold;
+        }
+        
+        .list_squr li {
+            list-style-type: square;
+            margin-bottom: 10px;
+        }
+        
+        ol li {
+            padding: 5px 0px;
+        }
+        
+        ul li {
+            list-style: none;
+            padding: 0px;
+        }
+        
+        h3 {
+            margin-top: 20px;
+        }
+        /* @media screen and (max-width: 767px){
+        .wp_wrapper{
+            width: 100%;
+        }   
+    } */
+        
+        td {
+            min-width: 100px;
+            text-align: left;
+            padding: 5px 0px;
+            border-bottom: 1px solid #9999991f;
+        }
+        
+        th {
+            text-align: left;
+            padding: 5px 0px;
+        }
+        
+        .group-head {
+            text-align: left;
+            background-color: #e7e7e7;
+            font-weight: bold;
+            padding-left: 15px;
+        }
+        
+        tr {}
+        
+        .orange-set {
+            color: #ffbc34;
+        }
+        
+        .Green-set {
+            color: #9add3b;
+        }
+        
+        .blue-set {
+            color: #857bff;
+        }
+        
+        .red-set {
+            color: #ff7474;
+        }
+        
+        .ngreen-set {
+            color: #58d8a3;
+        }
+        .border-left{
+            border-left: 1px solid #9999991f;
+        }
+        .border-right{
+            border-right: 1px solid #9999991f;
+        }
+        .head-div{
+                      padding-left: 30px;
+            padding-top: 30px;
+            float: left;
+        }
+        .head-span{
+            font-size: 19px;
+            font-weight: bold;
+            text-transform: capitalize;
+  
+        }
+        @media only screen and (max-width: 767px) {
+            .wp_wrapper {
+                width: 100%;
+            }
+        }
+        a{
+            color: #005598!important;
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+     <div class="wp_wrapper-main">
+    <div class="wp_wrapper">
+     
+        
+<div id="" >
+<div class="head-div" >
+    <span class="head-span">Site Survey - <%= main_data.sort_by %> </span>
+</div>
+<div>
+    <a href="#" style="display: flow-root;"><img src="https://dev.uspowersavers.com/assets/images/usplogo_Inverse.svg" style="float: right;width: 250px;"> </a>
+</div>
+    
+</div> 
+ <div style="clear: both;border-bottom: 1px solid #ccc;"></div>
+       
+        <div style="width: 100;text-align: center;    margin-top: 20px;">
+            <% if (main_data.division_title != '') { %>
+            <div style="margin-left: 33px;float: left">
+                Division : <strong> <%= main_data.division_title %>  </strong>
+            </div>
+         <% } %>
+               <% if (main_data.region_title != '') { %>
+            <div style="margin-left: 33px;float: left">
+                Region : <strong> <%= main_data.region_title %>  </strong>
+            </div>
+                  <% } %>
+                  <% if (main_data.office_title != '') { %>
+            <div style="margin-left: 33px;float: left">
+                Office : <strong> <%= main_data.office_title %>  </strong>
+            </div>
+                  <% } %>
+
+
+        </div>
+
+
+
+        <table style="width: 100%;margin-top: 70px;">
+            <tr>
+                <th style="text-align: left;padding-left: 10px;width: 146px;"  >Opportunity ID</th>               
+                <th  >Customer Name</th>               
+                <th  >Customer Email </th>
+ 
+                <th  > Sales Rep</th>
+               
+                 <th  >Title</th>
+                 <th  >Start Time</th>
+                 <th  >End Time</th>
+                
+                  <th  >Assigned To</th>
+                  <th  >Status</th>
+                
+                 
+                 <th  >Opportunity Status </th>
+                <th  >Created</th>
+            </tr>
+           
+                  <% for(var i=0; i<data.length; i++) { %>
+                <tr>
+                    <td colspan="11" class="group-head"><%= data[i].name %></td>
+                </tr>
+        
+                      <% for(var j=0; j<data[i].list.length; j++) { %>
+
+                            <tr>
+                                    <td colspan="11" style="background-color: #f5f4f4;" class="group-head"><%= data[i].list[j].name %></td>
+                                </tr>
+
+
+
+                                <% for(var k=0; k<data[i].list[j].list.length; k++) { %>
+
+                                        <tr>
+                                           
+                                              <td   style="text-align: left;padding-left: 10px;">
+                                  <a target="_blank" href="<%= main_data.site_url %>salesPortal/opportunity/details//<%= data[i].list[j].list[k].opportunity_unique_id %>">  <%= data[i].list[j].list[k].opportunity_code %>  </a>
+                                                </td>
+                                            <td  ><%= data[i].list[j].list[k].customer_firstname %> <%= data[i].list[j].list[k].customer_lastname %> </td>
+                                            <td  ><%= data[i].list[j].list[k].customer_email %></td>
+                                            <td  ><%= data[i].list[j].list[k].sales_rep_first_name %> <%= data[i].list[j].list[k].sales_rep_last_name %></td>
+                                         
+                                            <td  ><%= data[i].list[j].list[k].appoinment_title %></td>
+                                                  <td  ><%= data[i].list[j].list[k].appoinment_start_time %></td>
+                                                  <td  ><%= data[i].list[j].list[k].appoinment_end_time %></td>
+                                                  <td  ><%= data[i].list[j].list[k].appoinments_assigned_user_first_name %> <%= data[i].list[j].list[k].appoinments_assigned_user_last_name %></td>
+                                           
+                                                    <td  ><%= data[i].list[j].list[k].appoinment_status %></td>
+                                                    <td  ><%= data[i].list[j].list[k].opportunity_stage %></td>
+                                          
+                                            <td class=" border-right"><%= data[i].list[j].list[k].created_at %></td>
+                                        </tr>
+                                        <% } %>
+
+
+
+
+
+                            
+                     <% } %>
+                <% } %>
+           
+
+
+        </table>
+
+
+
+
+
+    </div>
+             </div>
+<div id="pageFooter" style="border: 6px solid #f0f0f0;margin-left: 10px;margin-right: 10px"></div>
+ <div id="pageHeader" style="border: 6px solid #f0f0f0;margin-left: 10px;margin-right: 10px"></div>
+<div id="pageHeader-first"></div>
+
+</body>
+
+</html>

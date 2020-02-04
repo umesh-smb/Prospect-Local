@@ -1,0 +1,30 @@
+<script src="/javascripts/jquery-2.1.3.min.js"></script>
+<script src="/javascripts/bootstrap.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	$(function(){
+		var $frmSendMessage = $("#frmSendMessage");
+		var $message = $("#message");
+		var $receiveMessage = $("#receiveMessage");
+		socket = io.connect('http://10.10.10.39:3000', {  
+			query: {token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im1hbmFnZXJAcHJvc3BlY3QuY29tIiwidXNlcl9pZCI6ODQsImlhdCI6MTU2MDE1ODk5NywiZXhwIjoxNTY4Nzk4OTk3fQ.2AW-DcrUTpwdGca1f4SNHQB5nPJtIwUHtuEnoo60gAE'} 
+		});
+		
+		socket.on("new_message", function(data){
+			//console.log( data );
+			$receiveMessage.append('<p class="message">' + data.messages.message + '</p>');
+		})
+		
+		$frmSendMessage.on("submit", function(evt){
+			evt.preventDefault();
+			var message = $message.val();
+			$message.val('');
+			//console.log( message );
+			let data = { message : message , user_id : 8 }
+			socket.emit("send_message", data);					
+		})
+		
+	});
+</script>
+</body>
+</html>
