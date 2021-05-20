@@ -23,7 +23,7 @@
     "express-sns-validator": "^1.0.0",
     "format-currency": "^1.0.0",
     "group-array": "^0.3.3",
-    "html-pdf": "^2.2.0",
+    "html-pdf": "^3.0.1",
     "ics": "^2.18.0",
     "jade": "~1.11.0",
     "jimp": "^0.2.27",
