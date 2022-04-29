@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "@google/maps": "^0.4.5",
-    "async": "^2.5.0",
+    "async": "^2.6.4",
     "aws-sdk": "^2.203.0",
     "aws-sns-subscription-confirmation": "^0.2.1",
     "aws-snsclient": "^0.2.0",
